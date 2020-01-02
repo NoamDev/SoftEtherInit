@@ -1,4 +1,5 @@
 git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable.git
+cd SoftEtherVPN_Stable
 sudo apt -y install cmake gcc g++ libncurses5-dev libreadline-dev libssl-dev make zlib1g-dev
 ./configure
 sudo make install
