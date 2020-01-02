@@ -5,11 +5,13 @@ fi
 
 mkdir build
 cd build
-git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable.git
+git clone https://github.com/SoftEtherVPN/SoftEtherVPN.git
 cd SoftEtherVPN_Stable
 apt -y install cmake gcc g++ libncurses5-dev libreadline-dev libssl-dev make zlib1g-dev
+git submodule init && git submodule update
 ./configure
-make install
+make -C tmp
+make -C tmp install
 cd ..
 vpnserver start
 
@@ -20,7 +22,7 @@ BridgeCreate DEFAULT /DEVICE:soft /TAP:yes
 OpenVpnMakeConfig openvpnconfig.zip
 EOF
 )|vpncmd localhost:5555 /server /adminhub:DEFAULT /password:"" /CMD
-
+pwd
 cp dhcpd.conf /etc/dhcpd.conf
 
 systemctl start network@tap_soft
