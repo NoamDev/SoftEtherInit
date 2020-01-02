@@ -10,6 +10,7 @@ cd SoftEtherVPN_Stable
 apt -y install cmake gcc g++ libncurses5-dev libreadline-dev libssl-dev make zlib1g-dev
 ./configure
 make install
+cd ..
 vpnserver start
 
 openvpnconfig=mktemp /tmp/openvpnconfig_XXXXXXXXX.zip
