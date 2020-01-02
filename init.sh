@@ -13,16 +13,17 @@ make install
 cd ..
 vpnserver start
 
-openvpnconfig=mktemp /tmp/openvpnconfig_XXXXXXXXX.zip
 echo "Enter new password:"
 read -s password
 (cat <<EOF
 ServerPasswordSet $password
 OpenVpnEnable yes /PORTS:"1194"
 SecureNatEnable
-OpenVpnMakeConfig $openvpnconfig
+OpenVpnMakeConfig openvpnconfig.zip
 EOF
 )|vpncmd localhost:5555 /server /adminhub:DEFAULT /password: /IN
 
+unzip openvpnconfig.zip
+install -C -m 775 -o www-data openvpnconfig/*l3.ovpn /var/www/yehudae.ga/openvpnconfig.ovpn
 cd ..
 rm -R build
