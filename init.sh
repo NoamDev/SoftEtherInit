@@ -20,7 +20,7 @@ OpenVpnEnable yes /PORTS:"1194"
 SecureNatEnable
 OpenVpnMakeConfig openvpnconfig.zip
 EOF
-)|vpncmd localhost:5555 /server /adminhub:DEFAULT /password:"" /IN
+)|vpncmd localhost:5555 /server /adminhub:DEFAULT /password:"" /CMD
 
 unzip openvpnconfig.zip
 install -C -m 775 -o www-data openvpnconfig/*l3.ovpn /var/www/yehudae.ga/openvpnconfig.ovpn
