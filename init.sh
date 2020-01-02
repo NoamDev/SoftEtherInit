@@ -13,8 +13,6 @@ make install
 cd ..
 vpnserver start
 
-echo "Enter new password:"
-read -s password
 (cat <<EOF
 OpenVpnEnable yes /PORTS:"1194"
 SecureNatEnable
