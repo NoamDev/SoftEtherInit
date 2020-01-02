@@ -18,11 +18,10 @@ read -s password
 (cat <<EOF
 OpenVpnEnable yes /PORTS:"1194"
 SecureNatEnable
-OpenVpnMakeConfig openvpnconfig.zip
+OpenVpnMakeConfig openvpnconfig/openvpnconfig.zip
 EOF
 )|vpncmd localhost:5555 /server /adminhub:DEFAULT /password:"" /CMD
 
-unzip openvpnconfig.zip
+unzip openvpnconfig/openvpnconfig.zip
 install -C -m 775 -o www-data openvpnconfig/*l3.ovpn /var/www/yehudae.ga/openvpnconfig.ovpn
 cd ..
-rm -R build
