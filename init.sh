@@ -6,7 +6,7 @@ fi
 mkdir build
 cd build
 git clone https://github.com/SoftEtherVPN/SoftEtherVPN.git
-cd SoftEtherVPN_Stable
+cd SoftEtherVPN
 apt -y install cmake gcc g++ libncurses5-dev libreadline-dev libssl-dev make zlib1g-dev
 git submodule init && git submodule update
 ./configure
