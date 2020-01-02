@@ -23,6 +23,6 @@ EOF
 )|vpncmd localhost:5555 /server /adminhub:DEFAULT /password:"" /CMD
 
 mkdir -p openvpnconfig
-unzip openvpnconfig.zip -d openvpnconfig/
+unzip -o openvpnconfig.zip -d openvpnconfig/
 install -C -m 775 -o www-data openvpnconfig/*l3.ovpn /var/www/yehudae.ga/openvpnconfig.ovpn
 cd ..
